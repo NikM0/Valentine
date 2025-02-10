@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine?</title>
+    <title>Pinaaa will you be my valentine? :3 HEHEHEEH</title> 
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -47,7 +47,6 @@
         .no-btn {
             background-color: #ccc;
             color: black;
-            position: absolute;
         }
         .hidden-message {
             display: none;
@@ -59,25 +58,41 @@
 </head>
 <body>
     <div class="container">
-        <h1>Will You Be My Valentine? 💖</h1>
+        <h1 id="question">💖 Pinaaa will you be my valentine? :3 HEHEHEEH 💖</h1>
         <div class="buttons">
             <button class="yes-btn" onclick="showLove()">Yes 💕</button>
-            <button class="no-btn" onmouseover="moveButton()">No 💔</button>
+            <button class="no-btn" onclick="askAgain()" id="noButton">No 💔</button>
         </div>
-        <p class="hidden-message" id="message">Yay! You’re the best! ❤️🥰</p>
+        <p id="question" style="font-size: 3em">HEHEHE ME LOVENYOUUU SOOO SOOO SOOO MUCHHH❤️🥰</p>
+        <p class="hidden-message" id="message">My lilll pinaaa :3</p>
     </div>
 
     <script>
+        let noClicks = 0;
+
         function showLove() {
             document.getElementById("message").style.display = "block";
         }
 
-        function moveButton() {
-            const button = document.querySelector(".no-btn");
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            button.style.left = `${x}px`;
-            button.style.top = `${y}px`;
+        function askAgain() {
+            noClicks++;
+            const question = document.getElementById("question");
+            const noButton = document.getElementById("noButton");
+
+            if (noClicks === 1) {
+                question.innerText = "Are you sure... :( Do you want to be my valentine?"; 
+                question.style.fontSize = "3em";
+            } else if (noClicks === 2) {
+                question.innerText = "ARE YOU SURE? :( DO YOU WANT TO BE MY VALENTINE?"; 
+                question.style.fontSize = "3.5em";
+            } else if (noClicks === 3) {
+                question.innerText = "ARE YOU REALLY REALLY SURE?! 😭 DO YOU WANT TO BE MY VALENTINE"; 
+                question.style.fontSize = "4em";
+            } else {
+                question.innerText = "HMPH WELL TOO BAD >:3"
+                question.style.fontSize = "3em";
+                noButton.style.display = "none";
+            }
         }
     </script>
 </body>
