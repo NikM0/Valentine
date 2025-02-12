@@ -59,11 +59,10 @@
 <body>
     <div class="container">
         <h1 id="question">💖 Pinaaa will you be my valentine? :3 HEHEHEEH 💖</h1>
-        <div class="buttons">
+        <div class="buttons" id="buttonsContainer">
             <button class="yes-btn" onclick="showLove()">Yes 💕</button>
             <button class="no-btn" onclick="askAgain()" id="noButton">No 💔</button>
         </div>
-        <p id="question" style="font-size: 3em">HEHEHE ME LOVENYOUUU SOOO SOOO SOOO MUCHHH❤️🥰</p>
         <p class="hidden-message" id="message">My lilll pinaaa :3</p>
     </div>
 
@@ -71,7 +70,9 @@
         let noClicks = 0;
 
         function showLove() {
-            document.getElementById("message").style.display = "block";
+            document.getElementById("question").textContent = "HEHEHE ME LOVENYOUUU SOOO SOOO SOOO MUCHHH❤️🥰";
+            document.getElementById("message").style.display = "block"; // Show hidden message
+            document.getElementById("buttonsContainer").style.display = "none"; // Hide buttons
         }
 
         function askAgain() {
@@ -89,7 +90,7 @@
                 question.innerText = "ARE YOU REALLY REALLY SURE?! 😭 DO YOU WANT TO BE MY VALENTINE"; 
                 question.style.fontSize = "4em";
             } else {
-                question.innerText = "HMPH WELL TOO BAD >:3"
+                question.innerText = "HMPH WELL TOO BAD >:3";
                 question.style.fontSize = "3em";
                 noButton.style.display = "none";
             }
